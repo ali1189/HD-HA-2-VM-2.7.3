@@ -20,17 +20,32 @@ Hadoop High availability 2.7.3 two machines master and slave in same node:
 8- In both VM set value in "Zookeeper-data-dir/myid:1 for master1 or 2 for master2
 
 9- starting Hadoop Service:
+
 - start journalnode in all: hadoop-daemon.sh
-  start journalnode
+  
+
+start journalnode
+
 - In activenode: hdfs namenode -format
-  hadoop-daemon.sh start namenode
+  
+
+hadoop-daemon.sh start namenode
+
 - In standbynode: hdfs namenode -bootstrapStandby
+  
   hadoop-daemon.sh start namenode
+
 - Start Zookeeper Service in all: zkServer.sh start
+
 - Start DataNodes in all: hadoop-daemon.sh start datanode
+
 - In activenode format and start failover controller: hdfs zkfc -formatZK
-  hadoop-daemon.sh start zkfc
+
+hadoop-daemon.sh start zkfc
+
 - In standbynodeformat and start failover controller:
-  hdfs zkfc -formatZK
-  hadoop-daemon.sh start zkfc
+
+hdfs zkfc -formatZK
+
+hadoop-daemon.sh start zkfc
 - check Services: ps -ef | grep hadoop | grep -P 'namenode|datanode|ZKFailoverController|zookeeper|journalnode'
