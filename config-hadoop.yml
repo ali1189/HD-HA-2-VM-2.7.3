@@ -1,0 +1,28 @@
+---
+- hosts: hadoop-cluster
+  become: yes
+  gather_facts: True
+  vars:
+    
+# Machines hostnames   
+    master1: hadoop1
+    master2: hadoop2
+
+# hadoop & zookeeper version
+    hadoop_archive_url: https://archive.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+    zookeeper_archive_url: https://archive.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+
+# Important directories 
+
+    working_dir: /home/hadoop
+    
+    hadoop_dir: /home/hadoop/app/hadoop
+    zookeeper_dir: /home/hadoop/app/zookeeper
+
+    namenode_Dir: /home/hadoop/data/nameNode
+    datanode_Dir: /home/hadoop/data/dataNode
+
+
+  roles:
+
+     - config-hadoop
