@@ -4,6 +4,12 @@
     state: present
     password: $1$rYWXEZ03$96uSe23XrOf1XrNZB5PRK1
 
+- name: Generate SSH key for hadoop user
+  become_user: hadoop
+  command: ssh-keygen -t rsa -f /home/hadoop/.ssh/id_rsa -N ''
+  args:
+    creates: /home/hadoop/.ssh/id_rsa
+
 - name: create zookeeperdata working directory
   file:
     path: "{{ item }}"
@@ -131,7 +137,7 @@
 - name: Set NameNode directory
   replace:
     path: "{{ item }}"
-    regexp: '\b(\w*/home/hadoop/data/nameNode\w*)\b'
+    regexp: '\/home\/hadoop\/data\/nameNode'
     replace: "{{ namenode_Dir }}"
   with_items:
     - "{{ hadoop_dir }}/etc/hadoop/hdfs-site.xml"
@@ -139,7 +145,7 @@
 - name: Set DameNode directory
   replace:
     path: "{{ item }}"
-    regexp: '\b(\w*/home/hadoop/data/dataNode\w*)\b'
+    regexp: '\/home\/hadoop\/data\/dataNode'
     replace: "{{ datanode_Dir }}"
   with_items:
     - "{{ hadoop_dir }}/etc/hadoop/hdfs-site.xml"
