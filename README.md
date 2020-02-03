@@ -48,4 +48,7 @@ hadoop-daemon.sh start zkfc
 hdfs zkfc -formatZK
 
 hadoop-daemon.sh start zkfc
-- check Services: ps -ef | grep hadoop | grep -P 'namenode|datanode|ZKFailoverController|zookeeper|journalnode'
+
+- check Services: 
+
+ps -ef | grep hadoop | grep -P 'namenode|datanode|ZKFailoverController|zookeeper|journalnode'
