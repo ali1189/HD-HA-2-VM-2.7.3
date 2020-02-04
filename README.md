@@ -4,6 +4,8 @@ HD-HA-2-VM-2.7.3
 Hadoop High availability 2.7.3 two machines master and slave in same node:
 
 1- Vagrant up && vagrant hostmanaer
+   
+   root password: ali
 
 2- Copy roles & config-hadoop.yml to /etc/ansible and add hostnames under [hadoop-cluster] in /etc/ansible/hosts
 
