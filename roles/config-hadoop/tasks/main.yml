@@ -62,13 +62,8 @@
       export PATH=${PATH}:${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin
       export PATH=${PATH}:$ZOOKEEPER_HOME/bin
       export PATH=${PATH}:$JAVA_HOME/bin
-
-- name: Set Env hadoop & java & zookeeper bash_profile
-  blockinfile:
-    path: "{{ working_dir }}/.bash_profile"
-    block: |
-      PATH=/home/hadoop/app/hadoop/bin:/home/hadoop/app/hadoop/sbin:$PATH
-      PATH=/home/hadoop/app/zookeeper/bin:/home/hadoop//appzookeeper/bin:$PATH
+      export PATH=/home/hadoop/app/hadoop/bin:/home/hadoop/app/hadoop/sbin:$PATH
+      export PATH=/home/hadoop/app/zookeeper/bin:/home/hadoop//appzookeeper/bin:$PATH
 
 - name: create zookeeper working directory
   file:
