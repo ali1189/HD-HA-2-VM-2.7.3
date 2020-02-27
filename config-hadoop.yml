@@ -1,5 +1,5 @@
 ---
-- hosts: hadoop-cluster
+#- hosts: hadoop-cluster
   become: yes
   gather_facts: True
   vars:
