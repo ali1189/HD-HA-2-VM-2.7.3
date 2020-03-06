@@ -3,6 +3,8 @@ HD-HA-2-VM-2.7.3
 
 Hadoop High availability 2.7.3 two machines master and slave in same node:
 
+Check Process-status to get Hadoop services processes metrics 
+
 In addition you will find in Hadoop-svc/roles/config-hadoop/templates: namenode.service, datanode.service, zkfc.service, zookeeper.service "systemd service"
 
 
