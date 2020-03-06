@@ -1,0 +1,18 @@
+[Unit]
+Description=Hadoop DFS namenode and datanode
+After=syslog.target network.target remote-fs.target nss-lookup.target network-online.target
+Requires=network-online.target
+
+[Service]
+User=hadoop
+Group=hadoop
+Type=forking
+ExecStart=/svc/app/hadoop/sbin/hadoop-daemon.sh start zkfc
+ExecStop=/svc/app/hadoop/sbin/hadoop-daemon.sh stop zkfc
+WorkingDirectory=/svc/app/hadoop/
+TimeoutStartSec=1min
+Restart=on-failure
+#PIDFile=/run/hadoop-hadoop-namenode.pid
+
+[Install]
+WantedBy=multi-user.target

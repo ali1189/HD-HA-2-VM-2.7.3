@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", path: "bootstrap.sh"
+  config.vm.box = "centos/7"
+    config.vm.provider "virtualbox" do |vb|
+
+        vb.name = "hadoop3.cluster"
+  end
+ #Hadoop-Master1
+  config.vm.define "hadoop3.cluster", primary: true do |master|
+    master.vm.network "private_network", ip: "192.168.55.78"
+    master.vm.provider "virtualbox" do |vb|
+      vb.name = "hadoop3.cluster"
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+    master.vm.hostname = "hadoop3.cluster"
+  end
+
+ #Hadoop-master2
+  config.vm.define "hadoop4.cluster" do |agent|
+    agent.vm.network "private_network", ip: "192.168.55.79"
+    agent.vm.provider "virtualbox" do |vb|
+      vb.name = "hadoop4.cluster"
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+    agent.vm.hostname = "hadoop4.cluster"
+  end
+
+end

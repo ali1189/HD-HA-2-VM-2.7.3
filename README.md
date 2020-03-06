@@ -3,6 +3,11 @@ HD-HA-2-VM-2.7.3
 
 Hadoop High availability 2.7.3 two machines master and slave in same node:
 
+In addition you will find in Hadoop-svc/roles/config-hadoop/templates: namenode.service, datanode.service, zkfc.service, zookeeper.service "systemd service"
+
+
+0- Change directroy to hadoop-svc 
+
 1- Vagrant up && vagrant hostmanaer
    
    root password: ali
