@@ -1,2 +1,9 @@
 test
+<<<<<<< HEAD
 UAT
+=======
+
+UAT Branch
+UAT Branch
+
+>>>>>>> master
